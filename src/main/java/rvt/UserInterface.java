@@ -7,14 +7,12 @@ public class UserInterface {
     private TodoList todoList;
     private Scanner scanner;
 
-
     public UserInterface(TodoList todoList, Scanner scanner) {
         this.todoList = todoList;
         this.scanner = scanner;
     }
 
     public void start() {
-
         while (true) {
             System.out.print("Command: ");
             String command = scanner.nextLine();
