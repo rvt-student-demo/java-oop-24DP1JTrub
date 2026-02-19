@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 //import java.util.Locale;
 import java.util.Scanner;
+import student.utils.ConsoleColors;
+
 
 public class Main {
     private static final String[] HEADERS = {
@@ -78,7 +80,8 @@ public class Main {
         LocalDateTime registeredAt = LocalDateTime.now();
 
         students.add(new Student(firstName, lastName, email, personalCode, registeredAt));
-        System.out.println("Students ir pievienots.");
+        System.out.println(ConsoleColors.GREEN.code + "Students ir pievienots." + ConsoleColors.RESET.code);
+
     }
 
     private static void handleShow(List<Student> students) {
@@ -102,7 +105,8 @@ public class Main {
             return;
         }
         students.remove(found);
-        System.out.println("Students ir dzests.");
+        System.out.println(ConsoleColors.RED.code + "Students ir dzests." + ConsoleColors.RESET.code);
+
     }
 
     private static void handleEdit(Scanner scanner, List<Student> students) {
@@ -123,7 +127,8 @@ public class Main {
         Student updated = new Student(firstName, lastName, email, personalCode, found.getRegisteredAt());
         students.remove(found);
         students.add(updated);
-        System.out.println("Dati atjaunoti.");
+        System.out.println(ConsoleColors.GREEN.code + "Dati ir atjaunoti." + ConsoleColors.RESET.code);
+
     }
 
     private static String askName(Scanner scanner, String label) {
@@ -179,7 +184,7 @@ public class Main {
                 continue;
             }
             if (isEmailTaken(students, value, current)) {
-                System.out.println("Kļūda: e-pasts jau ir aiznemts.");
+                System.out.println(ConsoleColors.RED.code + "Kļūda: e-pasts jau ir aiznemts." + ConsoleColors.RESET.code);
                 continue;
             }
             return value;
